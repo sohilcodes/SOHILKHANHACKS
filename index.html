@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; }
+        .login-box { width: 300px; padding: 20px; background: white; margin: 100px auto; border-radius: 10px; }
+        input, button { width: 100%; padding: 10px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Enter Email"><br>
+        <input type="password" id="password" placeholder="Enter Password"><br>
+        <button onclick="login()">Login</button>
+        <a href="get_key.html"><button>🔑 Get Key</button></a>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function login() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let storedEmail = localStorage.getItem("adminEmail");
+            let storedPassword = localStorage.getItem("adminPassword");
+
+            if (email === storedEmail && password === storedPassword) {
+                window.location.href = "prediction.html";
+            } else {
+                document.getElementById("message").innerText = "Invalid Credentials!";
+            }
+        }
+    </script>
+</body>
+</html>
