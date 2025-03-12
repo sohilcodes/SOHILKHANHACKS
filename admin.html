@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .admin-box { width: 300px; padding: 20px; margin: 50px auto; background: white; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="admin-box">
+        <h2>Create User</h2>
+        <input type="email" id="adminEmail" placeholder="Enter Email"><br>
+        <input type="password" id="adminPassword" placeholder="Enter Password"><br>
+        <button onclick="createUser()">Create User</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function createUser() {
+            let email = document.getElementById("adminEmail").value;
+            let password = document.getElementById("adminPassword").value;
+
+            localStorage.setItem("adminEmail", email);
+            localStorage.setItem("adminPassword", password);
+
+            document.getElementById("message").innerText = "User Created!";
+        }
+    </script>
+</body>
+</html>
