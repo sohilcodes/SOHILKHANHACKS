@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Key</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .box { width: 300px; padding: 20px; background: white; margin: 100px auto; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Generate Login Key</h2>
+        <button onclick="generateKey()">Generate Key</button>
+        <p id="key"></p>
+    </div>
 
+    <script>
+        function generateKey() {
+            let key = Math.random().toString(36).substring(2, 12).toUpperCase();
+            localStorage.setItem("loginKey", key);
+            document.getElementById("key").innerText = "Your Key: " + key;
+        }
+    </script>
+</body>
+</html>
